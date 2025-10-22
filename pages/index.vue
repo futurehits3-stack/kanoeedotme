@@ -9,7 +9,7 @@
                                  <section id="topheader" class="bg-pink py-2 px-4 border-b-sm">
                             <v-row class="py-1">
                                 <v-col cols="2" md="1" xs="2" class="pr-1">
-                                        <v-avatar image="https://picsum.photos/200" class="text-center" ></v-avatar>
+                                        <v-avatar :image="`${replaceImgString(word.profileImage.asset._ref)}?h=80`" class="text-center" ></v-avatar>
                                 </v-col>
                                 <v-col cols="10" md="11" xs="10" class="pl-1">
                                     <div class="py-1 mt-1">
@@ -26,7 +26,7 @@
                             
                         </v-card-text>
                         <div class="px-3 py-2 bg-grey-lighten-5">
-                                <p class="text-caption text-grey-darken-4">Date Published: October, 21st, 2025</p>
+                                <p class="text-caption text-grey-darken-4">Date Published: {{formatDate(word.dateWordPublished)}}</p>
                             </div>
                             </nuxt-link>
                        
@@ -56,6 +56,22 @@ useHead({
 })
 const formatWord =  (word) => {
     return `${word.slice(0, 250).trim()}...`;
+}
+const formatDate = (date) => {
+    let d = new Date(date)
+    return d.getMonth()+1 + '/' + d.getDate() + '/' + d.getFullYear()
+}
+const replaceImgString = (imgstring) => {
+
+    let img = imgstring
+    img = img.replace('image-', '')
+    if (img.indexOf('-jpg') === -1) {
+        img = img.replace('-webp', '.webp')
+    } else {
+        img = img.replace('-jpg', '.jpg')
+    }
+    img = img.replace('-jpg', '.jpg')
+    return `https://cdn.sanity.io/images/bkw931fv/production/${img}`
 }
 
 </script>

@@ -52,7 +52,6 @@ const breadcrumbsItems = [{
 }]
 
 const formatDate = (date) => {
-    //console.log(date)
     let d = new Date(date)
     return d.getMonth()+1 + '/' + d.getDate() + '/' + d.getFullYear()
 }
