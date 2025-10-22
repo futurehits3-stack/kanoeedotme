@@ -8,10 +8,10 @@
                             <nuxt-link :to="`/wordoftheday/${word.slug.current}/`">
                                  <section id="topheader" class="bg-pink py-2 px-4 border-b-sm">
                             <v-row class="py-1">
-                                <v-col cols="12" md="1">
-                                        <v-avatar image="https://picsum.photos/200"></v-avatar>
+                                <v-col cols="2" md="1" xs="2" class="pr-1">
+                                        <v-avatar image="https://picsum.photos/200" class="text-center" ></v-avatar>
                                 </v-col>
-                                <v-col cols="12" md="11">
+                                <v-col cols="10" md="11" xs="10" class="pl-1">
                                     <div class="py-1 mt-1">
                                         <p class="text-uppercase mb-0 ml-2 text-subtitle-1 font-weight-bold wordTitle">{{ word.todayWordTitle }}</p>
                                         <span class="text-caption ml-2">Author: {{word.authorOfThePost}}</span>
