@@ -40,6 +40,12 @@ const sanity = useSanity()
 const {
     data
 } = await useAsyncData(`dailyWord:${params.id}`, () => sanity.fetch(queryG))
+useHead({
+  title: `${data[0].todayWordTitle} | Kanoee`,
+  meta: [
+    { name: 'description', content: `EVerything about kanoee` },
+  ],
+})
 //console.log(data.value[0].todayWordTitle)
 const breadcrumbsItems = [{
     title: 'Home' ,
