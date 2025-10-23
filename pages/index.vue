@@ -3,8 +3,8 @@
         <v-main>
             <v-container>
                 <v-row>
-                    <v-col cols="12" md="6"> 
-                        <v-card v-for="(word,wk) in data" :key="wk" class="rounded-lg">
+                    <v-col v-for="(word,wk) in data" :key="wk" cols="12" md="6" sm="12" class="card-height"> 
+                        <v-card class="rounded-lg mb-2" min-height="281">
                             <nuxt-link :to="`/wordoftheday/${word.slug.current}/`">
                                  <section id="topheader" class="bg-pink py-2 px-4 border-b-sm">
                             <v-row class="py-1">
@@ -25,7 +25,7 @@
 
                             
                         </v-card-text>
-                        <div class="px-3 py-2 bg-grey-lighten-5">
+                        <div class="px-3 py-2 bg-grey-lighten-5 datebottom">
                                 <p class="text-caption text-grey-darken-4">Date Published: {{formatDate(word.dateWordPublished)}}</p>
                             </div>
                             </nuxt-link>
@@ -81,5 +81,13 @@ const replaceImgString = (imgstring) => {
 }
 a{
     text-decoration: none;
+}
+.card-height{
+    position: relative;
+}
+.card-height .datebottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 </style>
