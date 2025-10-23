@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-main>
-            <v-container class="pt-0">
+            <v-container class="pt-0" v-if="data">
                 <!-- <pre>{{ data }}</pre> -->
                  <v-card class="pa-3" flat>
                     <section class="py-3">
