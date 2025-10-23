@@ -20,7 +20,6 @@
                     <section id="social">
                         <v-btn icon="mdi-facebook" flat></v-btn>
                         <v-btn icon="mdi-email-box" flat></v-btn>
-                        <v-icon icon="mdi-facebook"></v-icon>
                     </section>
                 <v-card-text class="px-0">
                     <section id="main-story">
@@ -41,10 +40,18 @@ const {
     data
 } = await useAsyncData(`dailyWord:${params.id}`, () => sanity.fetch(queryG))
 useHead({
-  title: `${data.value[0].todayWordTitle} | Kanoee`,
+  title: `${data.value[0].todayWordTitle} | Kanoee.Me`,
   meta: [
     { name: 'description', content: `EVerything about kanoee` },
   ],
+})
+useSeoMeta({
+  title: `${data.value[0].todayWordTitle} | Kanoee.Me`,
+  ogTitle: `${data.value[0].todayWordTitle} | Kanoee.Me`,
+  description: `${data.value[0].smallExercpt}`,
+  ogDescription: `${data.value[0].smallExercpt}`,
+  ogImage: 'https://example.com/image.png',
+  twitterCard: 'summary_large_image',
 })
 //console.log(data.value[0].todayWordTitle)
 const breadcrumbsItems = [{
