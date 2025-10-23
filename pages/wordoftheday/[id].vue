@@ -18,8 +18,14 @@
                     <h1 class="text-h3 font-weight-black">{{ data[0].todayWordTitle }}</h1>
                     <p class="text-subtitle-1 py-2 mb-0">Author {{data[0].authorOfThePost}}</p>
                     <section id="social">
-                        <v-btn icon="mdi-facebook" flat></v-btn>
-                        <v-btn icon="mdi-email-box" flat></v-btn>
+                        
+                        <SocialShare
+                        v-for="network in ['facebook','email']"
+                        :key="network"
+                        :network="network"
+                        :label="false">
+                            <template #icon><v-btn :icon="`mdi-${network}`" flat></v-btn></template>
+                        </SocialShare>
                     </section>
                 <v-card-text class="px-0">
                     <section id="main-story">
@@ -73,4 +79,11 @@ const formatDate = (date) => {
      #main-story p{
         margin-bottom: 20px;
     }
+    #social a{
+        display: inline-block;
+        color: #000;
+        padding: 3px;
+        margin: 0 1px;
+    }
+    
 </style>

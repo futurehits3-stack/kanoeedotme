@@ -12,9 +12,15 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
-    '@nuxtjs/sanity'],
+    '@nuxtjs/sanity',
+    '@stefanobartoletti/nuxt-social-share'
+  ],
   sanity: {
     projectId: 'bkw931fv'
+  },
+  socialShare: {
+    baseUrl: 'https://www.kanoee.me' // required!
+    // other optional module options
   },
   vite: {
     vue: {
