@@ -2,7 +2,7 @@
     <div>
         <v-main>
             <v-container class="pt-0" v-if="data">
-                <!-- <pre>{{ data }}</pre> -->
+                <!-- <pre>{{ data[0] }}</pre> -->
                  <v-card class="pa-3" flat>
                     <section class="py-3">
                         <v-row>
@@ -20,7 +20,7 @@
                     <section id="social">
                         <v-btn icon="mdi-facebook" flat></v-btn>
                         <v-btn icon="mdi-email-box" flat></v-btn>
-                        <!-- <v-icon icon="mdi-facebook"></v-icon> -->
+                        <v-icon icon="mdi-facebook"></v-icon>
                     </section>
                 <v-card-text class="px-0">
                     <section id="main-story">
@@ -41,7 +41,7 @@ const {
     data
 } = await useAsyncData(`dailyWord:${params.id}`, () => sanity.fetch(queryG))
 useHead({
-  title: `${data[0].todayWordTitle} | Kanoee`,
+  title: `${data.value[0].todayWordTitle} | Kanoee`,
   meta: [
     { name: 'description', content: `EVerything about kanoee` },
   ],
