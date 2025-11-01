@@ -51,7 +51,7 @@ const {
 useHead({
   title: `Welcome to Everything about Kanoee!`,
   meta: [
-    { name: 'description', content: `EVerything about kanoee` },
+    { name: 'description', content: `Everything about kanoee` },
   ],
 })
 const formatWord =  (word) => {

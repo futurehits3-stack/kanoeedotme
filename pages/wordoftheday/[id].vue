@@ -48,7 +48,7 @@ const {
 useHead({
   title: `${data.value[0].todayWordTitle} | Kanoee.Me`,
   meta: [
-    { name: 'description', content: `EVerything about kanoee` },
+    { name: 'description', content: `${data.value[0].smallExercpt}` },
   ],
 })
 useSeoMeta({
