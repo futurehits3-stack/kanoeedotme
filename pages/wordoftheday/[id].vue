@@ -56,11 +56,12 @@ const replaceImgString = (imgstring) => {
     let img = imgstring
     img = img.replace('image-', '')
     if (img.indexOf('-jpg') === -1) {
-        img = img.replace('-webp', '.webp')
+        img = img.replace('-png', '.png')
     } else {
         img = img.replace('-jpg', '.jpg')
     }
-    img = img.replace('-jpg', '.jpg')
+    //img = img.replace('-jpg', '.jpg')
+    console.log(img)
     return `https://cdn.sanity.io/images/bkw931fv/production/${img}`
 }
 useSeoMeta({
@@ -68,7 +69,7 @@ useSeoMeta({
   ogTitle: `${data.value[0].todayWordTitle} | Kanoee.Me`,
   description: `${data.value[0].smallExercpt}`,
   ogDescription: `${data.value[0].smallExercpt}`,
-  ogImage: `${replaceImgString(data.value[0].profileImage.asset._ref)}`,
+  ogImage: `${replaceImgString(data.value[0].soicalImage.asset._ref)}`,
   twitterCard: 'summary_large_image',
 })
 //console.log(data.value[0].todayWordTitle)
