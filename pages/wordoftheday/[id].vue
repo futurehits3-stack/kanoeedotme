@@ -126,7 +126,7 @@ const formatDate = (date) => {
         border-radius: 10px;
     }
     #main-story strong,  #main-story p {
-        color: #292929
+        color: #353535
     }
     
 </style>
