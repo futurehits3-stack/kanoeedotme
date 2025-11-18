@@ -99,5 +99,10 @@ const formatDate = (date) => {
         padding: 3px;
         margin: 0 1px;
     }
+    ul{
+        list-style: decimal;
+        margin-left: 20px;
+        border-radius: 10px;
+    }
     
 </style>
