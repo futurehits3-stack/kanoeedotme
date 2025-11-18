@@ -5,8 +5,9 @@
                 <h1 class="text-h4 text-pink font-weight-black pt-3 pb-4">The Daily W.O.W (Words of Wonder)</h1>
                 <v-row>
                     <v-col v-for="(word,wk) in data" :key="wk" cols="12" md="6" sm="12" class="card-height"> 
-                        <v-card class="rounded-lg mb-2" min-height="281">
-                            <nuxt-link :to="`/wordoftheday/${word.slug.current}/`">
+                        <nuxt-link :to="`/wordoftheday/${word.slug.current}/`">
+                        <v-card class="rounded-lg mb-2 elevation-1" min-height="220">
+                            
                                  <section id="topheader" class="bg-pink py-2 px-4 border-b-sm">
                             <v-row class="py-1">
                                 <v-col cols="2" md="1" xs="2" class="pr-1">
@@ -29,9 +30,10 @@
                         <div class="px-3 py-2 bg-grey-lighten-5 datebottom">
                                 <p class="text-caption text-grey-darken-4">Date Published: {{formatDate(word.dateWordPublished)}}</p>
                             </div>
-                            </nuxt-link>
+                            
                        
                 </v-card>
+                </nuxt-link>
                     </v-col>
                 </v-row>
                 

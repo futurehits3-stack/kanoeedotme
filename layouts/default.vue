@@ -1,5 +1,5 @@
 <template>
-<div>
+<div >
     <v-app>
         <v-app-bar :elevation="0" color="pink-darken-1" height="44" density="compact">
     </v-app-bar>
