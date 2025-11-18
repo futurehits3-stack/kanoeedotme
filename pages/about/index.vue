@@ -1,7 +1,7 @@
 <template>
     <v-main>
         <v-container>
-            <h1 class="text-h4 text-pink font-weight-bold">About {{data[0].aboutTitle}}</h1>
+            <h1 class="text-h4 text-pink font-weight-bold pb-3">About {{data[0].aboutTitle}}</h1>
             <PortableText :value="data[0].aboutPage" class="text-body-1" #/>
         </v-container>
             
