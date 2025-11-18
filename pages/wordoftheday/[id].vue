@@ -7,7 +7,9 @@
                     <section class="py-3 bg-pink rounded-lg elevation-3">
                         <v-row>
                             <v-col cols="7" md="9" sm="9">
+                                <client-only>
                                 <v-breadcrumbs :items="breadcrumbsItems" class="py-0 pl-0 text-caption"></v-breadcrumbs>
+                                </client-only>
                             </v-col>
                             <v-col cols="5" md="3" sm="3">
                                 <p class="text-right text-caption py-0 pr-4">{{formatDate(data[0].dateWordPublished)}}</p>
@@ -17,7 +19,9 @@
                     </section>
                     <div class="mt-2 bg-pink-lighten-2 pa-5 rounded-lg elevation-2 ">
                         <h1 class="text-h4 text-white font-weight-black">{{ data[0].todayWordTitle }}</h1>
-                    <p class="text-subtitle-2 py-2 mb-0">Author {{data[0].authorOfThePost}}</p>
+                        
+                        
+                    
                     <section id="social">
                         
                         <SocialShare
@@ -28,7 +32,18 @@
                             <template #icon><v-btn :icon="`mdi-${network}`" color="white" flat variant="text"></v-btn></template>
                         </SocialShare>
                     </section>
+                        <div class="pa-2 bg-pink-lighten-3 border-sm rounded-lg">
+                            <v-row align="center" class="spacer" no-gutters  >
+                            <v-col cols="3" md="1" sm="3" class="text-center">
+                                <v-avatar :image="`${replaceImgString(data[0].profileImage.asset._ref)}`"></v-avatar>
+                            </v-col>
+                            <v-col cols="9" md="11" sm="10">
+                                <p class="text-subtitle-2 py-2 mb-0  text-white text-left">Author {{data[0].authorOfThePost}}</p>
+                            </v-col>
+                         </v-row>
+                        </div>
                     </div>
+                    
                     <div class="pa-5 mt-2 rounded-lg bg-grey-lighten-5 elevation-1">
                         
                 <v-card-text class="px-0">
