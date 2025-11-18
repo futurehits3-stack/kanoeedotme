@@ -51,12 +51,24 @@ useHead({
     { name: 'description', content: `${data.value[0].smallExercpt}` },
   ],
 })
+const replaceImgString = (imgstring) => {
+
+    let img = imgstring
+    img = img.replace('image-', '')
+    if (img.indexOf('-jpg') === -1) {
+        img = img.replace('-webp', '.webp')
+    } else {
+        img = img.replace('-jpg', '.jpg')
+    }
+    img = img.replace('-jpg', '.jpg')
+    return `https://cdn.sanity.io/images/bkw931fv/production/${img}`
+}
 useSeoMeta({
   title: `${data.value[0].todayWordTitle} | Kanoee.Me`,
   ogTitle: `${data.value[0].todayWordTitle} | Kanoee.Me`,
   description: `${data.value[0].smallExercpt}`,
   ogDescription: `${data.value[0].smallExercpt}`,
-  ogImage: 'https://example.com/image.png',
+  ogImage: `${replaceImgString(data.value[0].profileImage.asset._ref)}`,
   twitterCard: 'summary_large_image',
 })
 //console.log(data.value[0].todayWordTitle)
@@ -74,6 +86,7 @@ const formatDate = (date) => {
     let d = new Date(date)
     return d.getMonth()+1 + '/' + d.getDate() + '/' + d.getFullYear()
 }
+
 </script>
 <style>
      #main-story p{
