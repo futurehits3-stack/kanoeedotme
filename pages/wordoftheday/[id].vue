@@ -29,7 +29,7 @@
                         </SocialShare>
                     </section>
                     </div>
-                    <div class="pa-5 mt-2 rounded-lg bg-grey-lighten-4 elevation-1">
+                    <div class="pa-5 mt-2 rounded-lg bg-grey-lighten-5 elevation-1">
                         
                 <v-card-text class="px-0">
                     <section id="main-story">
@@ -109,6 +109,9 @@ const formatDate = (date) => {
         list-style: decimal;
         margin-left: 20px;
         border-radius: 10px;
+    }
+    #main-story strong,  #main-story p {
+        color: #292929
     }
     
 </style>
