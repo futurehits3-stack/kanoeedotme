@@ -2,7 +2,7 @@
     <div>
         <v-main>
             <v-container>
-                <h1 class="text-h4 text-pink font-weight-black pt-3 pb-4">The Daily W.O.W (Words of Wonder)</h1>
+                <h1 class="text-h5 text-pink font-weight-black pt-3 pb-4">The Daily W.O.W (Words of Wonder)</h1>
                 <v-row>
                     <v-col v-for="(word,wk) in data" :key="wk" cols="12" md="6" sm="12" class="card-height"> 
                         <nuxt-link :to="`/wordoftheday/${word.slug.current}/`">

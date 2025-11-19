@@ -2,7 +2,6 @@
     <div>
         <v-main>
             <v-container class="pt-0" v-if="data">
-                <!-- <pre>{{ data[0] }}</pre> -->
                  <v-card class="pa-3" flat>
                     <section class="py-3 bg-pink rounded-lg elevation-3">
                         <v-row>
@@ -19,9 +18,7 @@
                     </section>
                     <div class="mt-2 bg-pink-lighten-2 pa-5 rounded-lg elevation-2 ">
                         <h1 class="text-h4 text-white font-weight-black">{{ data[0].todayWordTitle }}</h1>
-                        
-                        
-                    
+                        <p class="text-caption " v-if="data[0].timetoread">{{ data[0].timetoread }} read</p>
                     <section id="social">
                         
                         <SocialShare
