@@ -18,7 +18,9 @@
                     </section>
                     <div class="mt-2 bg-pink-lighten-2 pa-5 rounded-lg elevation-2 ">
                         <h1 class="text-h4 text-white font-weight-black">{{ data[0].todayWordTitle }}</h1>
-                        <p class="text-caption " v-if="data[0].timetoread">{{ data[0].timetoread }} read</p>
+                        <v-chip  v-if="data[0].timetoread" class="mt-2" color="white">
+                            {{ data[0].timetoread }} read
+                        </v-chip>
                     <section id="social">
                         
                         <SocialShare
