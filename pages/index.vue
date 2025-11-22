@@ -6,7 +6,7 @@
                 <v-row>
                     <v-col v-for="(word,wk) in data" :key="wk" cols="12" md="6" sm="12" class="card-height"> 
                         <nuxt-link :to="`/wordoftheday/${word.slug.current}/`">
-                        <v-card class="rounded-lg mb-2 elevation-1" min-height="220">
+                        <v-card class="rounded-lg mb-2 elevation-6" min-height="220">
                             
                                  <section id="topheader" class="bg-pink py-2 px-4 border-b-sm">
                             <v-row class="py-1">
@@ -15,7 +15,7 @@
                                 </v-col>
                                 <v-col cols="10" md="11" xs="10" class="pl-1">
                                     <div class="py-1 mt-1">
-                                        <p class="text-uppercase mb-0 ml-2 text-subtitle-1 font-weight-bold wordTitle">{{ word.todayWordTitle }}</p>
+                                        <p class="text-uppercase mb-0 ml-2 text-subtitle-1 font-weight-bold wordTitle text-truncate">{{ word.todayWordTitle }}</p>
                                         <span class="text-caption ml-2">Author: {{word.authorOfThePost}}</span>
                                     </div>
                                 </v-col>
@@ -46,7 +46,7 @@
 <script setup>
 // import { PortableText } from '@portabletext/vue'
 const params = useRoute().params
-const queryG = groq `*[_type == "dailyWord"]`
+const queryG = groq `*[_type == "dailyWord"] | order(dateWordPublished desc)`
 const sanity = useSanity()
 const {
     data
