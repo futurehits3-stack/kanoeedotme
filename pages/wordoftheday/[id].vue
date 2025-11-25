@@ -46,7 +46,7 @@
                     <div class="pa-5 mt-2 rounded-lg bg-grey-lighten-5 elevation-1">
                         
                 <v-card-text class="px-0">
-                    <section id="main-story">
+                    <section id="main-story" class="px-6">
                     <PortableText :value="data[0].wordOfTheDay" class="text-body-1" #/>
                     </section>
                 </v-card-text>
@@ -120,7 +120,6 @@ const formatDate = (date) => {
         margin: 0 1px;
     }
     ul{
-        list-style: decimal;
         margin-left: 20px;
         border-radius: 10px;
     }
