@@ -2,13 +2,16 @@
     <div>
         <v-main>
             <v-container>
-                <h1 class="text-h5 text-pink font-weight-black pt-3 pb-4">The Daily W.O.W (Words of Wonder)</h1>
+                <div class="bg-pink rounded-lg pa-3 mb-3">
+                    <h1 class="text-h5 text-white font-weight-black pt-3 pb-4">The Daily W.O.W (Words of Wonder)</h1>
+                </div>
+                
                 <v-row>
                     <v-col v-for="(word,wk) in data" :key="wk" cols="12" md="6" sm="12" class="card-height"> 
                         <nuxt-link :to="`/wordoftheday/${word.slug.current}/`">
-                        <v-card class="rounded-lg mb-2 elevation-6" min-height="220">
+                        <v-card class="rounded-lg mb-2 elevation-3" min-height="200">
                             
-                                 <section id="topheader" class="bg-pink py-2 px-4 border-b-sm">
+                                 <section id="topheader" class="bg-pink-lighten-1 py-2 px-4 border-b-sm">
                             <v-row class="py-1">
                                 <v-col cols="2" md="1" xs="2" class="pr-1">
                                         <v-avatar :image="`${replaceImgString(word.profileImage.asset._ref)}?h=80`" class="text-center" ></v-avatar>
