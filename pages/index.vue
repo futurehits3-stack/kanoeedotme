@@ -25,7 +25,7 @@
                             </v-row>
                         </section>
                         <v-card-text class=" text-grey-darken-4">
-                            <p class="text-grey-darken-4">{{ formatWord(word.wordOfTheDay[0].children[0].text) }}</p>
+                            <p class="text-grey-darken-4">{{ word.smallExercpt }}</p>
                             <p class="text-caption font-weight-bold mt-2">Read More...</p>
 
                             
