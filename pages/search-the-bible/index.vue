@@ -17,8 +17,8 @@
                           </div>
                         <v-expand-transition>
                             <v-card-text class="bg-grey-darken-3" v-show="bd.showData">
-                                <v-chip v-for="(chap,chapK) in bd.chapters" :key="chapK" :to="`/search-the-bible/passage/${chap.id}`" class="mb-2 ml-2">
-                                
+                                <v-chip v-for="(chap,chapK) in bd.chapters" :key="chapK" :to="`/search-the-bible/passage/${chap.id}`" v-show="chap.number !== 'intro'" class="mb-2 ml-2">
+                                    
                                     {{ chap.bookId }} {{ chap.number }}
                                 </v-chip>
                             </v-card-text>
