@@ -1,7 +1,7 @@
 <template>
     <v-main>
         <v-container>
-            <v-row v-if="bibleData">
+            <v-row v-if="!loadingBible">
                 <v-col cols="12" md="6" class="pa-1" v-for=" (bd,bdk) in bibleData" :key="bdk">
                     <v-card  class="mb-2 rounded-lg card-pointer">
                         <!-- {{ bd }} -->
@@ -28,6 +28,7 @@
                     </v-card>
                 </v-col>
             </v-row>
+            <v-skeleton-loader type="card" v-else v-for="i in 3" :key="i"></v-skeleton-loader>
 
         </v-container>
         
@@ -36,6 +37,7 @@
 <script setup>
     const bibleData = ref()
     const showData = ref(false)
+    const loadingBible = ref(true)
     onMounted( async()=> {
          const res = await $fetch('https://rest.api.bible/v1/bibles/555fef9a6cb31151-01/books?include-chapters=true', {
             method: 'GET',
@@ -45,6 +47,7 @@
         }
         })
         bibleData.value = res.data
+        loadingBible.value = false
     })
    
     //
