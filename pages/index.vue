@@ -2,7 +2,7 @@
     <div>
         <v-main>
             <v-container>
-                <div class="bg-pink rounded-lg py-3 px-5 mb-3">
+                <div class="bg-pink rounded-lg elevation-3 py-3 px-5 mb-3">
                     <v-row class="pt-3 pb-1">
                         <v-col cols="9" md="9">
                             <h1 class="text-h5 text-white font-weight-bold " style="line-height: 1;">The Daily W.O.W </h1>
@@ -47,7 +47,10 @@
                 </nuxt-link>
                     </v-col>
                 </v-row>
-                
+                <div class="mt-3">
+                    <v-btn class="text-center text-white rounded-lg" block color="pink" to="/wordoftheday/view-all/" >View All Posts</v-btn>
+                        
+                </div>
             </v-container>
             
         </v-main>
