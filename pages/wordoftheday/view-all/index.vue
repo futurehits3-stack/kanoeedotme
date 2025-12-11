@@ -46,7 +46,7 @@ const queryG = groq `*[_type == "dailyWord"] | order(dateWordPublished desc)`
 const sanity = useSanity()
 const {
     data
-} = await useAsyncData(`daily:${params.id}`, () => sanity.fetch(queryG))
+} = await useAsyncData(`daily:viewAll`, () => sanity.fetch(queryG))
 useHead({
   title: `Welcome to Everything about Kanoee!`,
   meta: [
