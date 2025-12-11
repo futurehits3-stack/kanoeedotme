@@ -1,0 +1,58 @@
+<template>
+    <v-main>
+        <v-container>
+            <v-row v-if="bibleData">
+                <v-col cols="12" md="6" class="pa-1" v-for=" (bd,bdk) in bibleData" :key="bdk">
+                    <v-card  class="mb-2 rounded-lg card-pointer">
+                        <!-- {{ bd }} -->
+                          <div class="pa-4 bg-pink">
+                            <v-row @click="bd.showData = !bd.showData">
+                                <v-col cols="10">
+                                    <h3 class="text-subheading text-white text-truncate" style="line-height: 2.5;">{{ bd.name }} - {{ bd.abbreviation }}</h3>
+                                </v-col>
+                                <v-col cols="2" class="text-right">
+                                    <v-btn :icon="bd.showData ? 'mdi-chevron-up' : 'mdi-chevron-down'" variant="text" ></v-btn>
+                                </v-col>
+                            </v-row>
+                          </div>
+                        <v-expand-transition>
+                            <v-card-text class="bg-grey-darken-3" v-show="bd.showData">
+                                <v-chip v-for="(chap,chapK) in bd.chapters" :key="chapK" :to="`/search-the-bible/passage/${chap.id}`" class="mb-2 ml-2">
+                                
+                                    {{ chap.bookId }} {{ chap.number }}
+                                </v-chip>
+                            </v-card-text>
+                        </v-expand-transition>
+                        
+                        
+                    </v-card>
+                </v-col>
+            </v-row>
+
+        </v-container>
+        
+    </v-main>
+</template>
+<script setup>
+    const bibleData = ref()
+    const showData = ref(false)
+    onMounted( async()=> {
+         const res = await $fetch('https://rest.api.bible/v1/bibles/555fef9a6cb31151-01/books?include-chapters=true', {
+            method: 'GET',
+            headers: {
+            'api-key' : `oKfPeujlWx8RUIwaQ_9-T`, // Use the API key securely
+            // Or specific header name for your API, e.g., 'X-API-Key'
+        }
+        })
+        bibleData.value = res.data
+    })
+   
+    //
+    //oKfPeujlWx8RUIwaQ_9-T
+    // const { data } = await useAsyncData('item', () => $fetch('https://rest.api.bible/v1/bibles/555fef9a6cb31151-01/books?include-chapters=false'))
+</script>
+<style scoped>
+    .card-pointer{
+        cursor: pointer;
+    }
+</style>

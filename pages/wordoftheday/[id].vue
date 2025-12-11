@@ -47,7 +47,7 @@
                         
                 <v-card-text class="px-0">
                     <section id="main-story" class="px-6">
-                    <PortableText :value="data[0].wordOfTheDay" class="text-body-1" #/>
+                    <PortableText :value="data[0].wordOfTheDay" class="text-body-1"/>
                     </section>
                 </v-card-text>
                     </div>
