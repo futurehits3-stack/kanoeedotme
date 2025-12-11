@@ -1,45 +1,33 @@
 <template>
-    <div>
-        <v-main>
+    <v-main>
             <v-container>
-                <div class="bg-pink rounded-lg py-3 px-5 mb-3">
-                    <v-row class="pt-3 pb-1">
-                        <v-col cols="9" md="9">
-                            <h1 class="text-h5 text-white font-weight-bold " style="line-height: 1;">The Daily W.O.W </h1>
-                            <span class="text-body-2 text-white">(Words of Wonder)</span>
-                        </v-col>
-                        <v-col cols="3" md="3">
-                            <p class="text-right text-white"><nuxt-link to="/wordoftheday/view-all/" class="text-white text-decoration-underline">View All</nuxt-link></p>
-                        </v-col>
-                    </v-row>
-                </div>
                 
                 <v-row>
-                    <v-col v-for="(word,wk) in data" :key="wk" cols="12" md="6" sm="12" class="card-height"> 
-                        <nuxt-link :to="`/wordoftheday/${word.slug.current}/`">
+                    <v-col v-for="(word1,wk1) in data" :key="wk1" cols="12" md="6" sm="12" class="card-height"> 
+                        <nuxt-link :to="`/wordoftheday/${word1.slug.current}/`">
                         <v-card class="rounded-lg mb-2 elevation-3" min-height="200">
                             
                                  <section id="topheader" class="bg-pink-lighten-1 py-2 px-4 border-b-sm">
                             <v-row class="py-1">
                                 <v-col cols="2" md="1" xs="2" class="pr-1">
-                                        <v-avatar :image="`${replaceImgString(word.profileImage.asset._ref)}?h=80`" class="text-center" ></v-avatar>
+                                        <v-avatar :image="`${replaceImgString(word1.profileImage.asset._ref)}?h=80`" class="text-center" ></v-avatar>
                                 </v-col>
                                 <v-col cols="10" md="11" xs="10" class="pl-1">
                                     <div class="py-1 mt-1">
-                                        <p class="text-uppercase mb-0 ml-2 text-subtitle-1 font-weight-bold wordTitle text-truncate">{{ word.todayWordTitle }}</p>
-                                        <span class="text-caption ml-2">Author: {{word.authorOfThePost}}</span>
+                                        <p class="text-uppercase mb-0 ml-2 text-subtitle-1 font-weight-bold wordTitle text-truncate">{{ word1.todayWordTitle }}</p>
+                                        <span class="text-caption ml-2">Author: {{word1.authorOfThePost}}</span>
                                     </div>
                                 </v-col>
                             </v-row>
                         </section>
                         <v-card-text class=" text-grey-darken-4">
-                            <p class="text-grey-darken-4">{{ word.smallExercpt }}</p>
+                            <p class="text-grey-darken-4">{{ word1.smallExercpt }}</p>
                             <p class="text-caption font-weight-bold mt-2">Read More...</p>
 
                             
                         </v-card-text>
                         <div class="px-3 py-2 bg-grey-lighten-5 datebottom">
-                                <p class="text-caption text-grey-darken-4">Date Published: {{formatDate(word.dateWordPublished)}}</p>
+                                <p class="text-caption text-grey-darken-4">Date Published: {{formatDate(word1.dateWordPublished)}}</p>
                             </div>
                             
                        
@@ -51,13 +39,10 @@
             </v-container>
             
         </v-main>
-        
-    </div>
 </template>
 <script setup>
-// import { PortableText } from '@portabletext/vue'
 const params = useRoute().params
-const queryG = groq `*[_type == "dailyWord"] | order(dateWordPublished desc) [0...10]`
+const queryG = groq `*[_type == "dailyWord"] | order(dateWordPublished desc)`
 const sanity = useSanity()
 const {
     data
@@ -68,9 +53,7 @@ useHead({
     { name: 'description', content: `Everything about kanoee` },
   ],
 })
-const formatWord =  (word) => {
-    return `${word.slice(0, 250).trim()}...`;
-}
+
 const formatDate = (date) => {
     let d = new Date(date)
     return d.getMonth()+1 + '/' + d.getDate() + '/' + d.getFullYear()
@@ -87,7 +70,6 @@ const replaceImgString = (imgstring) => {
     img = img.replace('-jpg', '.jpg')
     return `https://cdn.sanity.io/images/bkw931fv/production/${img}`
 }
-
 </script>
 <style scoped>
 .wordTitle{
