@@ -1,11 +1,16 @@
 <template>
     <v-main>
         <v-container>
+            <div class="mb-6">
+                <h2 class="text-h4 font-weight-bold text-pink">Search The Bible</h2>
+                <p class="text-body-2 text-grey-darken-2" style="line-height: 1;">Below are books of the bible. Please click one to view the chapters.</p>
+            </div>
+            
             <v-row v-if="!loadingBible">
                 <v-col cols="12" md="6" class="pa-1" v-for=" (bd,bdk) in bibleData" :key="bdk">
                     <v-card  class="mb-2 rounded-lg card-pointer">
                         <!-- {{ bd }} -->
-                          <div class="pa-4 bg-pink">
+                          <div class="pa-4 bg-pink-lighten-1">
                             <v-row @click="bd.showData = !bd.showData">
                                 <v-col cols="10">
                                     <h3 class="text-subheading text-white text-truncate" style="line-height: 2.5;">{{ bd.name }} - {{ bd.abbreviation }}</h3>
@@ -38,6 +43,12 @@
     const bibleData = ref()
     const showData = ref(false)
     const loadingBible = ref(true)
+     useHead({
+            title: `Search The Bible - Kanoee.me`,
+            meta: [
+                { name: 'description', content: `Search The Bible - Kanoee.me` },
+            ],
+        })
     onMounted( async()=> {
          const res = await $fetch('https://rest.api.bible/v1/bibles/555fef9a6cb31151-01/books?include-chapters=true', {
             method: 'GET',
@@ -47,12 +58,9 @@
         }
         })
         bibleData.value = res.data
+       
         loadingBible.value = false
     })
-   
-    //
-    //oKfPeujlWx8RUIwaQ_9-T
-    // const { data } = await useAsyncData('item', () => $fetch('https://rest.api.bible/v1/bibles/555fef9a6cb31151-01/books?include-chapters=false'))
 </script>
 <style scoped>
     .card-pointer{
