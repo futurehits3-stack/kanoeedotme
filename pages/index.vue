@@ -1,6 +1,13 @@
 <template>
     <div>
         <v-main>
+            <section class="bg-grey-darken-4 py-4">
+                <v-container>
+                    <h2 class="text-h4 font-weight-bold">Search The Bible</h2>
+                    <p class="text-body-2">Need to gain knowledge? Or just looking for a specific chapter? Go explore the Bible today!</p>
+                    <v-btn color="pink" class="mt-3" to="/search-the-bible/">Explore Today</v-btn>
+                </v-container>
+            </section>
             <v-container>
                 <div class="bg-pink rounded-lg elevation-3 py-3 px-5 mb-3">
                     <v-row class="pt-3 pb-1">
