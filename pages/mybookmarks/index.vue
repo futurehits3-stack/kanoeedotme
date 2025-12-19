@@ -1,8 +1,9 @@
 <template>
     <v-main>
         <v-container>
-            <div>
-                <h1 class="text-h4 font-weight-bold text-pink mb-2">Your Bookmarks</h1>
+            <div class="mb-2">
+                <h1 class="text-h4 font-weight-bold text-pink ">Your Bookmarks</h1>
+                <p class="text-body-2"><v-icon icon="mdi-bookmark" color="pink"></v-icon><span class="font-weight-normal font-italic">{{ bookmarkStore.bookmarksCount }} Bookmarks</span></p>
             </div>
             <section v-if="bookmarkStore.bookmarks.length> 0">
                 <v-row>
