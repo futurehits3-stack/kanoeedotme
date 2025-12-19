@@ -35,5 +35,7 @@
          },
     { title: 'About',
             to: '/about/' },
+    { title: 'My Bookmarks',
+            to: '/mybookmarks/' }
     ])
 </script>
