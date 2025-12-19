@@ -85,6 +85,12 @@ export const useBookMarkStore = defineStore('bookmarkStore', {
                         this.bookmarkFound = true
                         return 
                     }
+                }else{
+                    localStorage.setItem('wordBookMarks',JSON.stringify([obj]))
+                    this.bookmarksCount = 1
+                    this.bookmarks.push(obj)
+                    this.bookmarkFound = true
+                    return 
                 }
             }
             
