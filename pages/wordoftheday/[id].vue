@@ -30,7 +30,10 @@
                         :label="false">
                             <template #icon><v-btn :icon="`mdi-${network}`" color="white" flat variant="text"></v-btn></template>
                         </SocialShare>
+                        <BookmarkWordBookmark :word="data[0]"/>
+
                     </section>
+                    
                         <div class="pa-2 bg-pink-lighten-3 border-sm rounded-lg">
                             <v-row align="center" class="spacer" no-gutters  >
                             <v-col cols="3" md="1" sm="3" class="text-center">
@@ -62,6 +65,7 @@ import { PortableText } from '@portabletext/vue'
 const params = useRoute().params
 const queryG = groq `*[_type == "dailyWord" && slug.current == '${params.id}']`
 const sanity = useSanity()
+
 const {
     data
 } = await useAsyncData(`dailyWord:${params.id}`, () => sanity.fetch(queryG))
@@ -81,7 +85,6 @@ const replaceImgString = (imgstring) => {
         img = img.replace('-jpg', '.jpg')
     }
     //img = img.replace('-jpg', '.jpg')
-    console.log(img)
     return `https://cdn.sanity.io/images/bkw931fv/production/${img}`
 }
 useSeoMeta({

@@ -11,10 +11,7 @@ export default defineNuxtConfig({
         // @ts-expect-error
         config.plugins.push(vuetify({ autoImport: true }))
       })
-    },
-    '@nuxtjs/sanity',
-    '@stefanobartoletti/nuxt-social-share'
-  ],
+    }, '@nuxtjs/sanity', '@stefanobartoletti/nuxt-social-share', '@pinia/nuxt'],
   sanity: {
     projectId: 'bkw931fv'
   },
