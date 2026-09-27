@@ -50,7 +50,7 @@
             ],
         })
     onMounted( async()=> {
-         const res = await $fetch('https://rest.api.bible/v1/bibles/555fef9a6cb31151-01/books?include-chapters=true', {
+         const res = await $fetch('https://rest.api.bible/v1/bibles/06125adad2d5898a-01/books?include-chapters=true', {
             method: 'GET',
             headers: {
             'api-key' : `oKfPeujlWx8RUIwaQ_9-T`, // Use the API key securely

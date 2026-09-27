@@ -20,7 +20,7 @@
     const params = useRoute().params
     const bibleverusData = ref()
     onMounted( async()=> {
-         const res = await $fetch(`https://rest.api.bible/v1/bibles/555fef9a6cb31151-01/passages/${params.id}?content-type=html&include-notes=false&include-titles=true&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false&use-org-id=false`, {
+         const res = await $fetch(`https://rest.api.bible/v1/bibles/06125adad2d5898a-01/passages/${params.id}?content-type=html&include-notes=false&include-titles=true&include-chapter-numbers=true&include-verse-numbers=true&include-verse-spans=false&use-org-id=false`, {
             method: 'GET',
             headers: {
             'api-key' : `oKfPeujlWx8RUIwaQ_9-T`
